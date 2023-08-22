@@ -1,48 +1,73 @@
-let apiKey = "AIzaSyAZdnIKGBcCPitlE2NMYX1fqURJ5wFOgEQ";
-
-const container = document.getElementsByClassName("container")[0];
+let apiKey = "AIzaSyCglIWZCwKPRtt3AV579jIXWG7rnEZepuc";
 
 
+//Format number
+function formatNumber(num, precision = 2) {
+  const map = [
+    { suffix: "T", threshold: 1e12 },
+    { suffix: "B", threshold: 1e9 },
+    { suffix: "M", threshold: 1e6 },
+    { suffix: "K", threshold: 1e3 },
+    { suffix: "", threshold: 1 },
+  ];
 
-let searchButton = document.getElementById("search");
+  const found = map.find((x) => Math.abs(num) >= x.threshold);
+  if (found) {
+    const formatted = (num / found.threshold).toFixed(precision) + found.suffix;
 
-
-
-function addDataToUI(videoData) {
-    container.innerHTML = "";
-    videoData.forEach((value) => {
-      let obj = value.snippet;
-      let video_div = document.createElement("div");
-      video_div.classList.add("video");
-      video_div.innerHTML = `
-      <a id="${value.id.videoId}" href="youtube_videoPage.html?video_id=${value.id.videoId}"><img
-        src="${obj.thumbnails.high.url}"
-        class="thumbnail"
-      /></a>
-      <p>${obj.title}</p>
-      <b>${obj.channelTitle}</b>
-      `;
-      container.appendChild(video_div);
-    });
+    return formatted;
   }
-  
-  async function searchString(value) {
-    let url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=50&q=${value}&key=${apiKey}`;
-    
-    let response = await fetch(url, { method: "GET" });
-  
-    let result = await response.json();
-  
-    console.log(result);
-    addDataToUI(result.items);
-  }
-  
-  searchButton.addEventListener("click", () => {
-  
-    let str = document.getElementsByTagName("input")[0];
-    if (str.value === "") {
-      return;
-    }
-    let str_value = str.value.trim();
-    searchString(str_value);
-  });
+
+  return num;
+}
+
+//Used to search the video
+async function searchString(value) {
+  let url = `https://youtube.googleapis.com/youtube/v3/search/?part=snippet&type=video&maxResults=50&q=${value}&key=${apiKey}`;
+
+  let response = await fetch(url, { method: "GET" });
+
+  let result = await response.json();
+
+  console.log(result);
+  return result.items;
+}
+
+//Fetching channelDetails
+async function fetchChannelDetails(channelId) {
+  let url = `https://youtube.googleapis.com/youtube/v3/channels/?part=snippet,statistics,contentDetails&id=${channelId}&key=${apiKey}`;
+
+  let response = await fetch(url, { method: "GET" });
+
+  let result = await response.json();
+  return result;
+}
+
+//Fetching CommentDetails
+async function fetchCommentDetails(video_id) {
+  let url = `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&video_id=${video_id}&maxResults=100&key=${apiKey}`;
+  let response = await fetch(url , {method : "GET"});
+  let result = await response.json();
+  return result;
+}
+
+
+
+//Fetching videoDetails
+async function fetchVideoDetails(video_id) {
+  let details = [];
+  let url = `https://youtube.googleapis.com/youtube/v3/videos/?part=snippet,statistics,player,topicDetails,contentDetails&id=${video_id}&key=${apiKey}`;
+  let response = await fetch(url, { method: "GET" });
+
+  let result = await response.json();
+  // console.log(result);
+  //Fetching the channelDetails by sending it's Id(ChannelId);
+  let channelDetail = await fetchChannelDetails(
+    result.items[0].snippet.channelId
+  );
+  // console.log(channelDetail);
+  details.push(result);
+  details.push(channelDetail);
+  return details;
+}
+

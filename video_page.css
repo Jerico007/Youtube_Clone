@@ -17,60 +17,61 @@ body::-webkit-scrollbar {
 
 /* Track */
 body::-webkit-scrollbar-track {
-  box-shadow: inset 0px 0px 3px 2px #999999;
-  border-radius: 10px;
+  /* box-shadow: inset 0px 0px 3px 2px #999999; */
+  /* border-radius: 10px; */
+  border-radius: none;
 }
 
 /* Handle */
 body::-webkit-scrollbar-thumb {
-  background: rgb(197 188 188);
   border-radius: 10px;
   height: 5px;
+  background: rgb(197 188 188);
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
 }
 .description-content::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
-.description-content::-webkit-scrollbar-track {
-  box-shadow: inset 0px 0px 3px 2px #999999;
-  border-radius: 10px;
-}
 
-/* Handle */
-.description-content::-webkit-scrollbar-thumb {
-  background: rgb(197 188 188);
-  border-radius: 10px;
-  height: 5px;
-}
-
-/* Handle on hover */
-.description-content::-webkit-scrollbar-thumb:hover {
-  background: #ffffff;
-}
-
+/* Header start */
 .header {
   position: sticky;
   top: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   background-color: rgb(36 35 35);
   padding: 12px;
 }
-.header > input {
+
+.header-icon{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.header-search > input {
   border-radius: 20px;
   height: 41px;
   padding: 12px;
-  width: 40vw;
+  width: 30vw;
   background-color: rgb(7, 7, 7);
   border: none;
   color: grey;
   outline: none;
   font-size: 16px;
-
 }
 
-.header > button {
+.header-search{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-search > button {
   cursor: pointer;
   position: relative;
   left: -36px;
@@ -85,38 +86,76 @@ body::-webkit-scrollbar-thumb {
   color: rgb(134, 133, 133);
 }
 
-.container {
+.mic{
+  cursor: pointer;
+  position: relative;
+  left: -34px;
+  border: none;
+  border-radius: 50%;
   display: flex;
-  flex-direction: column;
+  width: 40px;
+  height: 40px;
   justify-content: center;
   align-items: center;
+  background-color:rgb(52, 52, 52);
 }
+
+.header-buttons{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  cursor: pointer;
+}
+
+.user-logo > img{
+  border-radius: 50%;
+}
+/* Header end */
+
+/* Main container  */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Video-container start */
 
 .video-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  width: 60vw;
+  width: 45vw;
+  height: 100%;
   gap: 25px;
   padding: 20px;
 }
 
+/* video player start */
 #video-player {
   height: 338px;
-  width: 42vw;
+  width: 44vw;
 }
 
-#video-player > iframe{
+#video-player > iframe {
   height: 335px;
   width: 100%;
 }
+/* video player end */
 
+/* Video statistics start */
 .video-statistics {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  gap: 120px;
+  gap: 116px;
+}
+
+.view-count > p{
+  font-size: 13px;
 }
 
 .like-dislike {
@@ -135,11 +174,13 @@ body::-webkit-scrollbar-thumb {
   font-weight: 500;
   cursor: pointer;
 }
+/* Video statistics end */
 
+/* Description-container start */
 .description-container {
   display: flex;
   flex-direction: column;
-  width: 44vw;
+  width: 42vw;
   gap: 20px;
   border-top: 1px solid rgb(118, 118, 118);
   border-bottom: 1px solid rgb(118, 118, 118);
@@ -183,12 +224,11 @@ body::-webkit-scrollbar-thumb {
   height: 45px;
   width: 45px;
   border-radius: 33px;
-  background-image: url("https://i.ytimg.com/vi/vN63j0tWtUs/hqdefault.jpg");
-  background-size: contain;
+  object-fit: fill;
   background-repeat: no-repeat;
 }
 
-.subscribers-count{
+.subscribers-count {
   opacity: 7.9;
   color: gray;
   font-size: 13px;
@@ -197,6 +237,133 @@ body::-webkit-scrollbar-thumb {
 .description-content {
   word-wrap: break-word;
   line-height: 140%;
+  width: fit-content;
   overflow-y: auto;
-  height: 150px;
+  height: auto;
 }
+/* Description container-end */
+
+/* Comment container start */
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.comment-counts {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.comment-sort {
+  display: flex;
+  padding-left: 25px;
+  gap: 15px;
+}
+
+.comment-adder {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.comment-adder > img {
+  border-radius: 50%;
+}
+
+.comment-adder input {
+  width: 38vw;
+  background-color: black;
+  border: none;
+  border-bottom: 1px solid gray;
+  outline: none;
+}
+
+.comment-commentors {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.commentor-logo > img {
+  border-radius: 50%;
+}
+
+.commentor-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.details-row-1 {
+  display: flex;
+  gap: 10px;
+}
+
+.commented-on > p {
+  opacity: 7.1;
+  color: grey;
+  font-size: 13px;
+  word-wrap: break-word;
+}
+
+.details-row-3 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  width: 14vw;
+}
+/* Comment container end */
+
+/* playlist-contianer start */
+.playlist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 38vw;
+  padding: 20px;
+}
+
+.playlist-button-container {
+  display: flex;
+  gap: 7px;
+  padding-bottom: 12px;
+}
+
+.playlist-button-container > button{
+  border-radius: 30px;
+  padding: 12px;
+  background-color: #3d3c3c;
+  border: none;
+}
+
+
+.playlist-thumbnail{
+  height: 100px;
+}
+.playlist-item{
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.playlist-details{
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding-top: 20px;
+}
+
+.playlist-author > p{
+  color: gray;
+  opacity: 7.1;
+}
+
+.playlist-views > p{
+  color: gray;
+  opacity: 7.1;
+}
+/* Playlist container end */

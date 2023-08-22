@@ -22,19 +22,32 @@
   </head>
   <body>
     <div class="header">
-      <input type="text" placeholder="Search" />
-      <button type="button" id="search">
-        <i
-          class="fa-solid fa-magnifying-glass fa-lg"
-          style="color: #b0b0b0"
-        ></i>
-      </button>
+      <div class="header-icon">
+        <div class="hamburger"><img src="NavBar/hamburger.png" alt=""></div>
+        <div class="youtube-logo"><img src="General/Youtube-white.png" alt=""></div>
+      </div>
+      <div class="header-search">
+        <input type="text" placeholder="Search" />
+        <button type="button" id="search">
+          <i
+            class="fa-solid fa-magnifying-glass fa-lg"
+            style="color: #b0b0b0"
+          ></i>
+        </button>
+        <div class="mic">
+          <img src="NavBar/mic.png" alt="" srcset="" />
+        </div>
+      </div>
+      <div class="header-buttons">
+        <div class="record"><img src="NavBar/create.png" alt="" srcset=""></div>
+        <div class="apps"><img src="NavBar/apps.png" alt=""></div>
+        <div class="notification"><img src="NavBar/notifications.png" alt=""></div>
+        <div class="user-logo"><img src="Youtube/User-Avatar.png" alt="" srcset=""></div>
+      </div>
     </div>
     <div class="container">
       <!-- <div class="video-container">
-        <div id="video-player">
-      
-        </div>
+        <div id="video-player"></div>
         <div class="video-title">
           <p>
             CREW (Full Video) | Jimmy Mahal | Mxrci | Harry Jordan Films |
@@ -60,7 +73,10 @@
         <div class="description-container">
           <div class="channel">
             <div class="channel-logo">
-              <div class="logo"></div>
+              <img
+                class="logo"
+                src="https://yt3.ggpht.com/ytc/AOPolaTiouO5c3yEAJb2hJqPfX52AC_Es9IodmXxWKxcBA=s88-c-k-c0x00ffffff-no-rj"
+              />
               <div class="channel-name">
                 <p class="youtuber-name">Jimmy Mahal</p>
                 <p class="subscribers-count">1.2M subscribers</p>
@@ -76,8 +92,72 @@
             country.
           </div>
         </div>
+        <div class="comment-container">
+          <div class="comment-counts">
+            <div class="comment-counter">
+              <p>268 comments</p>
+            </div>
+            <div class="comment-sort">
+              <img src="Youtube/Group.png" alt="" />
+              <p>SORT BY</p>
+            </div>
+          </div>
+          <div class="comment-adder">
+            <img src="Youtube/User-Avatar.png" alt="" />
+            <input type="text" placeholder="Add a public comment..." />
+          </div>
+          <div class="comment-commentors">
+            <div class="commentor-logo">
+              <img
+                src="https://yt3.ggpht.com/Pg7QMxlvv7SYGYxWr9iyeFw2rzOB8AZXb7mn1nubkiG6Wr49Ix7wBkIIaM7YJR-1c_V1O0zP=s48-c-k-c0x00ffffff-no-rj"
+                alt=""
+              />
+            </div>
+            <div class="commentor-details">
+              <div class="details-row-1">
+                <div class="commentor-name">James Gouse</div>
+                <div class="commented-on">
+                  <p>8 hours ago</p>
+                </div>
+              </div>
+              <div class="details-row-2">
+                <p class="comment">Wow,world is of different size</p>
+              </div>
+              <div class="details-row-3">
+                <p>
+                  <span class="material-symbols-outlined"> thumb_up </span> 3
+                </p>
+                <p>
+                  <span class="material-symbols-outlined"> thumb_down </span>
+                </p>
+                <span>REPLY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="playlist-container">
+        <div class="playlist-button-container">
+          <button type="button">All</button>
+          <button type="button">From Marcus Levin</button>
+        </div>
+        <div class="playlist-item">
+          <img
+            class="playlist-thumbnail"
+            src="https://i.ytimg.com/vi/1dJJUTY35EM/hqdefault.jpg"
+            alt=""
+          />
+          <div class="playlist-details">
+            <div class="playlist-title">
+              <p>Ep6: Living to Serve | SEARCH ON</p>
+            </div>
+            <div class="playlist-author"><p>Hame Goues</p></div>
+            <div class="playlist-views"><p>1M views. 3 years ago</p></div>
+          </div>
+        </div>
       </div> -->
     </div>
-    <script src="videoPage.js"></script>
+    <script src="fetchDetails.js"></script> 
+     <script src="videoPage.js"></script>
   </body>
 </html>
