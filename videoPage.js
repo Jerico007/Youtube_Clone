@@ -176,6 +176,12 @@ function addVideoDetailsIntoUI(videoDetails, channelDetails) {
           <i class="fa-solid fa-share" style="color: #f5f5f5"></i> SHARE
         </p>
       </div>
+      <div class="video-save">
+         <img src="Youtube/Button-Btn-3.png">
+      </div>
+      <div class="video-other">
+         <img src="Youtube/Button-Btn-4.png">
+      </div>
     </div>
     <div class="description-container">
       <div class="channel">

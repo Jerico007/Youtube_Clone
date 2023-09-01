@@ -151,7 +151,7 @@ body::-webkit-scrollbar-thumb:hover {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  gap: 116px;
+  gap: 34px;
 }
 
 .view-count > p{
@@ -173,6 +173,16 @@ body::-webkit-scrollbar-thumb:hover {
 .video-share {
   font-weight: 500;
   cursor: pointer;
+}
+
+.video-save > img{
+  cursor: pointer;
+  height: 50px;
+}
+
+.video-other > img{
+  cursor: pointer;
+  height: 50px;
 }
 /* Video statistics end */
 
