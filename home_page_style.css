@@ -115,7 +115,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 92vh;
+  height: 89vh;
   width: 19vw;
   background-color: rgb(36 35 35);
   overflow-y: scroll;
@@ -231,7 +231,7 @@ body {
 .outer-container {
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 92vh;
+  height: 87vh;
   position: relative;
 }
 
