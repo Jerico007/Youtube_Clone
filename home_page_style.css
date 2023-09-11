@@ -316,6 +316,10 @@ body {
   .header-search > button{
     width: 12vw;
   }
+
+  .header-search > input{
+    width: 33vw;
+  }
   
   .header-buttons{
     display: none;
