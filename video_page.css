@@ -231,6 +231,7 @@ body::-webkit-scrollbar-thumb:hover {
   position: relative;
   right: 20px;
   height: 45px;
+  z-index: -100;
   width: 45px;
   border-radius: 33px;
   object-fit: fill;
