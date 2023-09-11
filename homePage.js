@@ -3,11 +3,11 @@ const container = document.getElementsByClassName("container")[0];
 function addDataToUI(videoData) {
   container.innerHTML = "";
   videoData.forEach((value) => {
-    console.log(value);
+    // console.log(value);
     //Calling fetchChannelDetails to get channel logo view counts and date of upload
     let channelDetails = fetchChannelDetails(value.snippet.channelId);
     channelDetails.then((channel_data) => {
-      console.log(channel_data);
+      // console.log(channel_data);
       let obj = value.snippet;
       let video_div = document.createElement("div");
       video_div.classList.add("video");
@@ -44,6 +44,8 @@ let defaultSearch = "Crew 2 Racing game";
 defaultSearch = searchString(defaultSearch);
 defaultSearch.then((data) => {
   addDataToUI(data);
+}).catch((data)=>{
+  console.log(data);
 });
 
 //Adding the search functionality when user search something..
@@ -59,3 +61,25 @@ searchButton.addEventListener("click", () => {
     addDataToUI(data);
   });
 });
+
+
+//Adding evenListener to hamburger to show/hide navigations
+let ham = document.getElementsByClassName("hamburger")[0];
+
+let toggled = true;
+ham.addEventListener("click", ()=>{
+ if(toggled)
+ {
+    document.getElementsByClassName("navigations")[0].style.display = "none";
+    document.getElementsByClassName("container")[0].style.gridTemplateColumns = "repeat(4 , 1fr)";
+    toggled = false;
+  }  
+  else{
+    
+    document.getElementsByClassName("navigations")[0].style.display = "flex";
+    document.getElementsByClassName("container")[0].style.gridTemplateColumns = "repeat(3 , 1fr)";
+    
+    toggled = true;
+ }
+  
+})

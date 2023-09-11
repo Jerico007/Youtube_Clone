@@ -56,7 +56,7 @@ function addPlaylistDetailsIntoUI(playlist) {
 
   playListContainer.innerHTML = ` <div class="playlist-button-container">
     <button type="button">All</button>
-    <button type="button">From Marcus Levin</button>
+    <button type="button">Recommendations</button>
   </div>`;
 
   playlist.then((data) => {
