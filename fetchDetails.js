@@ -1,4 +1,4 @@
-let apiKey = "AIzaSyCglIWZCwKPRtt3AV579jIXWG7rnEZepuc";
+let apiKey = "AIzaSyAZdnIKGBcCPitlE2NMYX1fqURJ5wFOgEQ";
 
 //Format number
 function formatNumber(num, precision = 2) {
